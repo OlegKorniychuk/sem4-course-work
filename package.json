@@ -1,0 +1,33 @@
+{
+  "name": "sem4-course-work",
+  "version": "1.0.0",
+  "description": "sem4 course work",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OlegKorniychuk/sem4-course-work.git"
+  },
+  "author": "Oleh Korniichuk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OlegKorniychuk/sem4-course-work/issues"
+  },
+  "homepage": "https://github.com/OlegKorniychuk/sem4-course-work#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "mongoose": "^7.2.2",
+    "npm": "^9.6.7"
+  },
+  "devDependencies": {
+    "dotenv": "^16.1.1",
+    "nodemon": "^2.0.22"
+  }
+}
