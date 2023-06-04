@@ -63,11 +63,11 @@ router.post('/login', async (req, res) => {
       token, 
       username: user.username, 
       isEmployee: user.isEmployee 
-    }) //frontend should store token in lokal storage and fetch /user/{username} if isEmployee == false
+    }) //frontend should store token in local storage and fetch /user/{username} if isEmployee == false
   })
 })
 
-//sign in
+//register
 
 router.get('/register', (req, res) => {
   console.log('GET: /user/register')
