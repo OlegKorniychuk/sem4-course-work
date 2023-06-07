@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const userSchema = new mongoose.Schema({
+const teamleadSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true
@@ -14,15 +14,19 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  orders: [{
-    name: { type: String, required: true },
-    status: { type: String, default: "In process" },
-    creationDate: { type: Date, default: Date.now },
-    sourceFile: { type: String, required: true }
-  }]
+  teamId: {
+    type: String,
+    required: true
+  },
+  currentProjectId: {
+    type: String,
+  },
+  completedProjects: {
+    projectId: String
+  }
 })
 
-userSchema.pre('save', function(next) {
+teamleadSchema.pre('save', function(next) {
   if (!this.isModified('password')) {
     return next();
   }
@@ -30,11 +34,11 @@ userSchema.pre('save', function(next) {
   next();
 });
 
-userSchema.methods.comparePassword = function(plaintextPassword, callback) {
+teamleadSchema.methods.comparePassword = function(plaintextPassword, callback) {
   bcrypt.compare(plaintextPassword, this.password, (err, isMatch) => {
     if (err) return callback(error);
     callback(null, isMatch);
   })
 };
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Teamlead', teamleadSchema);

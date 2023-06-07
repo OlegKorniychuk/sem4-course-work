@@ -5,22 +5,19 @@ const projectSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  creationDate: {
-    type: Date,
-    default: Date.now
-  },
-  sourceFile: {
-    type: String,
-    required: true
-  },
-  name: {
+  orderId: {
     type: String,
     required: true
   },
   status: {
     type: String,
     default: 'new'
-  } 
+  },
+  teamId: {
+    type: string
+  },
+  partialsReady: [{ String }],
+  partialsNotReady: [{ String }] 
 })
 
 module.exports = new mongoose.model("Project", projectSchema);
