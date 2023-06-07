@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const employeeSchema = new mongoose.Schema({
+const editorSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true
@@ -26,7 +26,7 @@ const employeeSchema = new mongoose.Schema({
   }
 })
 
-employeeSchema.pre('save', function(next) {
+editorSchema.pre('save', function(next) {
   if (!this.isModified('password')) {
     return next();
   }
@@ -34,11 +34,11 @@ employeeSchema.pre('save', function(next) {
   next();
 });
 
-employeeSchema.methods.comparePassword = function(plaintextPassword, callback) {
+editorSchema.methods.comparePassword = function(plaintextPassword, callback) {
   bcrypt.compare(plaintextPassword, this.password, (err, isMatch) => {
     if (err) return callback(error);
     callback(null, isMatch);
   })
 };
 
-module.exports = mongoose.model('Employee', employeeSchema);
+module.exports = mongoose.model('Editor', editorSchema);

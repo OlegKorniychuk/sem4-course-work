@@ -60,10 +60,9 @@ router.post('/login', async (req, res) => {
     const token = jwt.sign({ username: user.username }, process.env.SECRET_KEY, { expiresIn: '24h' });
     res.json({ 
       message: "Logged in successfully", 
-      token, 
+      token: token, 
       username: user.username, 
-      isEmployee: user.isEmployee 
-    }) //frontend should store token in local storage and fetch /user/{username} if isEmployee == false
+    }) //frontend should store token in local storage and fetch /user/{username}
   })
 })
 
