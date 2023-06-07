@@ -10,7 +10,10 @@ const teamSchema = new mongoose.Schema({
       type: String,
       required: true
     }
-  }]
+  }],
+  currentProjectId: {
+    type: String
+  }
 })
 
 module.exports = mongoose.model('Team', teamSchema);
