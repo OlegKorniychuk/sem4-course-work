@@ -112,7 +112,7 @@ router.post('/:username/newproject', upload.single('file'), async (req, res) => 
   try {
     const newProject = new Project({
       customer: req.body.username,
-      sourceFile: req.file.filename,
+      //sourceFile: req.file.filename,
       name: req.body.projectName
     });
     await newProject.save();

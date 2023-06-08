@@ -14,7 +14,7 @@ const projectSchema = new mongoose.Schema({
     default: 'new'
   },
   teamId: {
-    type: string
+    type: String
   },
   partialsReady: [{ String }],
   partialsNotReady: [{ String }] 

@@ -17,7 +17,6 @@ const editorSchema = new mongoose.Schema({
   currentProject: {
     projectId: {
       type: String,
-      required: true
     },
     partials: [{ partialId: String }]
   },

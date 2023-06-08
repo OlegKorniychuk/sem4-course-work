@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 
 const teamSchema = new mongoose.Schema({
+  teamLeadName: {
+    type: String
+  },
   teamLeadId: {
     type: String,
-    required: true
   },
   editors: [{
     editorId: {

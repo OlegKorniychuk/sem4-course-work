@@ -14,7 +14,7 @@ router.post('/login', async (req, res) => {
   if (!employee) {
     res.json({ message: "No employee with such an e-mail" });
   }
-  const employeeType = employee.constructor.modelName;
+  const employeeType = employee.constructor.modelName.toLowerCase();
   employee.comparePassword(employeePassword, (err, isMatch) => {
     if (err) {
       console.log(err);
