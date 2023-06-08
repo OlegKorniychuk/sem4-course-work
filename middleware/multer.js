@@ -1,9 +1,5 @@
 const multer = require('multer');
 
-const User = require('../models/user');
-const Project = require('../models/project');
-const checkAuth = require('../middleware/checkAuth');
-
 const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "public/data");

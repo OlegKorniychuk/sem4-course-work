@@ -1,6 +1,10 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 
+const User = require('../models/user');
+const Project = require('../models/project');
+const checkAuth = require('../middleware/checkAuth');
+
 const router = express.Router();
 const upload = require('../middleware/multer');
 
