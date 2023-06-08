@@ -62,3 +62,5 @@ router.post('/:username/:projectId', checkAuth, async (req, res) => {
   const projectName = project.projectName;
   res.json({ message: `Project ${projectName} now in progress` });
 })
+
+module.exports = router;

@@ -27,3 +27,5 @@ router.get('/:username', checkAuth, async (req, res) => {
   //status ongoing means that the project is in progress
 
 })
+
+module.exports = router;

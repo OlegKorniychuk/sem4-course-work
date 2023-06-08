@@ -24,6 +24,8 @@ db.once('open', () => {
 const indexRouter = require('./routes/index')
 const userRouter = require('./routes/user')
 const employeeRouter = require('./routes/employee')
+const managerRouter = require('./routes/manager')
+const teamleadRouter = require('./routes/teamlead')
 
 const app = express()
 
@@ -38,5 +40,7 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))
 app.use('/', indexRouter)
 app.use('/user', userRouter)
 app.use('/employee', employeeRouter)
+app.use('/manager', managerRouter)
+app.use('/teamlead', teamleadRouter)
 
 app.listen(process.env.PORT || 3000)
