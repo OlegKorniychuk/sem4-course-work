@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const checkAuth = require('../middleware/checkAuth');  // Adjust path as necessary
+const checkAuth = require('../middleware/checkAuth');
 
 jest.mock('jsonwebtoken');
 
@@ -9,7 +9,6 @@ describe('checkAuth middleware', () => {
   let nextFunction;
 
   beforeEach(() => {
-    // Create mock req and res objects before each test
     mockRequest = {
       headers: {
         authtoken: 'fakeToken',
