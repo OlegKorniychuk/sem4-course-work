@@ -30,7 +30,7 @@ router.post('/:username/:projectId', checkAuth, async (req, res) => {
   if (!project) {
     res.status(404).json({ message: "This project was not found" });
   }
-  project.status = 'ongoing';
+  project.status = 'forteamlead';
   project.teamId = selectedTeamId;
   await project.save();
 
