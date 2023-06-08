@@ -8,6 +8,7 @@ const Teamlead = require('../models/teamlead');
 const Editor = require('../models/editor');
 const checkAuth = require('../middleware/checkAuth');
 
+//Manager's cabinet - displays info about all projects. Can assign a new project to a team
 router.get('/:username', checkAuth, async (req, res) => {
   const newProjects = await Project.findMany({ status: 'new' }).exec();
   const currentProjects = await Project.findMany({ status: 'ongoing' }).exec();
@@ -19,6 +20,8 @@ router.get('/:username', checkAuth, async (req, res) => {
   })
 })
 
+
+//Assigning a selected project to a selected vacant team
 router.post('/:username/:projectId', checkAuth, async (req, res) => { 
   const projectId = req.params.projectId
   const selectedTeamId = req.body.selectedTeamId

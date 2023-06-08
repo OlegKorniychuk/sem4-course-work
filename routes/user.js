@@ -110,10 +110,17 @@ router.get('/:username', checkAuth, (req, res) => {
 
 router.post('/:username/newproject', upload.single('file'), async (req, res) => {
   try {
+    const order = {
+      name: req.body.projectName,
+      sourceFile: req.file.filename
+    };
+    const user = await User.findOne({ username: req.params.username }).exec();
+    user.orders.push(order);
+    await user.save();
+
     const newProject = new Project({
-      customer: req.body.username,
-      //sourceFile: req.file.filename,
-      name: req.body.projectName
+      customer: req.params.username,
+      orderId: user.orders[user.orders.length - 1]._id,
     });
     await newProject.save();
     res.json({ message: 'Project created successfuly!' })
